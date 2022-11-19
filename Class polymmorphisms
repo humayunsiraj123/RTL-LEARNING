@@ -1,0 +1,43 @@
+//polymorphisms
+/* polymorphisim is when we hhave variable or function wiht stah same name as parent class in child class so when we acces the fucntion function at default it will sned the function of the respective
+
+class like in child class fuction my and parent to have my so when we acces it it will send the child class function wiht the instansiation child class
+
+while to acces the function of childe class in parent class we need to use  "virtual" key word by assign parent class instanse=child class instance;
+*/
+
+class parent;
+  virtual function void print();
+    $display(" we are in parent classs" );
+  endfunction
+endclass
+
+
+class child extends parent;
+  function void print();
+    $display(" we are in child  classs" );
+  endfunction
+endclass
+
+
+
+module top;
+  parent P;
+  child C;
+  
+  initial
+    begin
+      P=new();
+      C=new();
+      //both result their respective fucntions
+      P.print();
+      C.print();
+      
+      //trying to access child funcion;
+      //here parents is getting child properties /mehtods;
+    P=C;
+     P.print();
+     C.print();
+       
+    end
+endmodule

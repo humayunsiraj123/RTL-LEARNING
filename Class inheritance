@@ -1,3 +1,4 @@
+// Class wiht basic inheritance  examples
 class parent;
   bit [4:0]length;
   bit[4:0] height;
@@ -19,6 +20,7 @@ class child extends parent;
     Area=length*height;
     $display("The area  is  %d",Area);
   endfunction
+  super.Peri();
 endclass
 
 

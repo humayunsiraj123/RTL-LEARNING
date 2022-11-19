@@ -1,0 +1,55 @@
+// array 
+
+//fixed array
+ /*module top;
+   int a[5];
+   int b[3][3];
+   
+   initial begin
+     a='{1,4,7,4,3};
+     b='{'{2,4,6},'{1,3,5},'{7,8,9}};
+     for(int i=0;i<5;i=i+1)begin
+       $display("At index %d is = %d",i,a[i]);
+     end
+   for (int i=0;i<3;i=i+1)
+     begin
+     for(int j=0;j<3;j=j+1)
+       begin
+         $display("a[%0d][%0d]= %0d",i,j,b[i][j]);
+       end
+     end
+   end        
+ endmodule
+                
+                
+*/
+//dynamic array ..resize the array at run time
+
+module top;
+  int a[];
+  initial begin
+    $display("the sieze of arrays is %0d",a.size());
+    
+    a=new[5];
+        $display("the sieze of arrays is %0d",a.size());
+    a={3,6,2,7,9};
+    for(int i=0;i<5;i=i+1)
+      begin
+        $display("at index a[%0d] = %0d",i,a[i]);
+  end
+    //a=new[50];
+    $display("the sieze of arrays is %0d",a.size());
+    //to append the array by keeping prevoiosue dATA
+    a=new[10](a);
+    a={a,2,4,6,4,2};
+    for(int i=0;i<10;i=i+1)
+      begin
+        $display("at index a[%0d] = %0d",i,a[i]);
+  end
+    $display("the sieze of arrays is %0d",a.size());
+    
+    
+  end
+endmodule
+  
+    

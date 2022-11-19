@@ -1,4 +1,7 @@
-// ENCAPSULATION i.r hding or controlling the accesibiity of paramters  using key owrdk local and protected .class variable are public in default while wihjt local we can encapsultaed so the variable cant be access outside the class even not acess by the extended class .while protected paramter use to make class varibale accessible by the extended class but cant be access directly .
+// ENCAPSULATION i.r hding or controlling the accesibiity of paramters  using key 
+//wordk local and protected .class variable are public in default while wihjt local 
+//we can encapsultaed so the variable cant be access outside the class even not acess by the extended 
+//class .while protected paramter use to make class varibale accessible by the extended class but cant be access directly .
 class parent;
   bit [4:0]a=15;
   bit[4:0] b=30;

@@ -1,0 +1,39 @@
+//enumeration  kind  of diffrent varilabe with index we can access the valeu change the index count the value insiede return the name and address of the elecemtn inside the enum 
+//methos there are next() first() last() prev() num()
+
+
+module top;
+enum{A,B,C,D,E,F} alpha;
+  //this enum will have 4 values and index will start from 10 
+  enum{mydata[4]=10} data;
+  
+  
+  
+
+initial begin 
+  alpha=A;
+  $display("the  name is %s  and the index is %d",alpha.name(),alpha);
+  
+  alpha=alpha.next();
+$display("the  name is %s  and the index is %d",alpha.name(),alpha);
+  alpha=alpha.first();
+$display("the  name is %s  and the index is %d",alpha.name(),alpha);
+  alpha=alpha.last();
+$display("the  name is %s  and the index is %d",alpha.name(),alpha);
+  alpha=alpha.prev();
+$display("the  name is %s  and the index is %d",alpha.name(),alpha);
+  
+  
+  data=data.next();
+  $display("the  name is %s  and the index is %d",data.name(),data);
+  data=data.first();
+  $display("the  name is %s  and the index is %d",data.name(),data);
+  data=data.last();
+$display("the  name is %s  and the index is %d",data.name(),data);
+  data=data.prev();
+$display("the  name is %s  and the index is %d",data.name(),data);
+  
+  
+  
+end 
+endmodule

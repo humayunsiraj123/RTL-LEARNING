@@ -1,0 +1,31 @@
+//MAIL BOX for transfering 
+//getter and setter 
+
+module top;
+  mailbox  MB=new();
+  
+  initial begin 
+    bit[4:0] a;
+
+    
+    for(int i=0;i<10;i=i+1)
+      begin
+        a=$random;
+
+        
+        MB.put(a);        $display("The value of SET A =%d ",a);
+      end
+  end
+  
+  initial begin
+    forever begin
+      bit [4:0]a;
+      MB.get(a);
+   
+      $display("The value of GETTTT A =%d and ",a);
+    end
+  end
+endmodule
+      
+    
+    

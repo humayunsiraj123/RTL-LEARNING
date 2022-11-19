@@ -1,0 +1,43 @@
+class parent;
+  bit [4:0]length;
+  bit[4:0] height;
+  bit [10:0] peri;
+  
+  function void Peri();
+    peri=2*(length+height);
+    $display("The perameter  is  %d",peri);
+  endfunction
+  
+endclass
+
+
+
+class child extends parent;
+  bit [31:0]Area;
+  
+  function Rectangle();
+    Area=length*height;
+    $display("The area  is  %d",Area);
+  endfunction
+endclass
+
+
+
+module top;
+  child C1;
+  initial begin
+    C1=new();
+    
+    C1.length=10;
+    C1.height=30;
+    C1.Rectangle();
+    C1.Peri();
+    
+  end 
+  endmodule
+    
+  
+  
+  
+  
+  

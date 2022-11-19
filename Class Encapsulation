@@ -1,0 +1,54 @@
+// ENCAPSULATION i.r hding or controlling the accesibiity of paramters  using key owrdk local and protected .class variable are public in default while wihjt local we can encapsultaed so the variable cant be access outside the class even not acess by the extended class .while protected paramter use to make class varibale accessible by the extended class but cant be access directly .
+class parent;
+  bit [4:0]a=15;
+  bit[4:0] b=30;
+ 
+  // local make variable accesiblel only in this class
+ // local bit [4:0]a=15;
+  //local bit[4:0] b=30;
+ 
+  // accessible in child but directly acces not possible  
+  
+ // protected bit [4:0]a =5;
+  //protected bit[4:0] b=10;
+  
+  function void displayy();
+    $display("The value of local paramter a=%d  b=%d",a,b);
+  endfunction
+  
+endclass
+
+
+
+class child extends parent;
+  bit [4:0]C;
+  
+  function add();
+    C=a+b;
+    $display(" %d + %d = %d",a,b,C);
+  endfunction
+endclass
+
+
+
+module top;
+  child C1;
+  bit [4:0]D;
+  initial begin
+    C1=new();
+    //wiht locaol below will give error but work with protected
+    C1.add();
+    
+    // in accessible a and b  as protected is use so only inheit can accces but directly inaccesible will give eror to resolve just make it public
+    D=C1.a-C1.b;
+    
+    $display( "%d  - %d = %d",C1.a,C1.b,D);
+    
+  end 
+  endmodule
+    
+  
+  
+  
+  
+  

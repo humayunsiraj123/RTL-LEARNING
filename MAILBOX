@@ -29,3 +29,34 @@ endmodule
       
     
     
+ 
+module top;
+  
+
+  bit [4:0]x;
+  bit [4:0]y;
+  mailbox MB=new();
+  
+  initial begin
+  for (int i=0;i<10;i=i+1)
+    begin
+      x=$random;
+      y=$random;
+      $display("The value PUT x =%d and y =%d ",x,y );
+      MB.put(x);
+      MB.put(y);
+    end
+  end
+    
+    initial begin
+      forever 
+        begin
+          MB.get(x);
+          
+          MB.get(y);
+          $display("The value GET x =%d and y =%d ",x,y );
+        end
+    end
+    
+          
+endmodule

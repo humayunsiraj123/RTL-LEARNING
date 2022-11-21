@@ -37,3 +37,40 @@ $display("the  name is %s  and the index is %d",data.name(),data);
   
 end 
 endmodule
+
+
+
+
+///////////////////////////////////
+ 
+module top;
+  
+  enum {A=10,B,C,D,F,E,R,G} alpha;
+  enum {my[4]=18} data;
+  initial begin
+//  alpha=new();
+  alpha=A;
+  
+  $display("the name %s and value is %d",alpha.name(),alpha);  
+  alpha=alpha.next();
+  $display("the name %s and value is %d",alpha.name(),alpha);  
+  
+ alpha=alpha.prev();
+  $display("the name %s and value is %d",alpha.name(),alpha);  
+  
+  alpha=alpha.last();
+  $display("the name %s and value is %d",alpha.name(),alpha);  
+  //mydata=new();
+  data=data.next();
+  
+    $display("the name %s and value is %d",data.name(),data);  
+  data=data.last();
+  $display("the name %s and value is %d",data.name(),data);  
+  
+  data=data.first();
+  $display("the name %s and value is %d",data.name(),data);  
+  
+  data=data.last();
+  $display("the name %s and value is %d",data.name(),data);  
+  end 
+endmodule

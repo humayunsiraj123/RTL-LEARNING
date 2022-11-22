@@ -1,0 +1,30 @@
+package mypackage;
+
+function add(int x,y);
+  return x+y;
+endfunction
+function sub(int x,y);
+  return x-y;
+  endfunction
+function print(int c=0);
+  $display("The value is  %0d ",c);
+  endfunction
+endpackage
+
+
+
+import mypackage::*;
+
+module test;
+  int a=5;
+  int b=10;
+  int c;
+  initial begin
+    c=add(a,b);
+    print(c);
+    
+    c=sub(a,b);
+ print(c);
+    
+  end 
+  endmodule

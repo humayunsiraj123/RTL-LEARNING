@@ -2,18 +2,19 @@ module voting_tb;
   reg clk,reset,button1,button2,button3,button4,modeS;
   wire [7:0]LED;
   
+ 
   
-  $dumpfile("voting_machine.vcd");
-  $dumpvars(voting_tb);
-  
-  voting_machine VM( .clk(clk),.reset(reset),.button1(button1),.button2(button2),.button3(button3),.button4(button4), .modeS(modeS) ,.LED(LED));
+
   
   always 
    begin
     #5 clk=~clk;
    end
-  initial begin
-   reset=0;button1=1'b1;button2=0;button3=0;button4=0;modeS=0;
+  
+  initial
+    begin
+  $dumpfile("testbench.vcd");
+      $dumpvars(0,voting_tb); reset=0;button1=1'b1;button2=0;button3=0;button4=0;modeS=0;
   #10;  
 reset=0;button1=1;button2=0;button3=0;button4=0;modeS=0;
   #10;  
@@ -29,11 +30,14 @@ reset=0;button1=0;button2=1'b1;button3=0;button4=0;modeS=1;
   #10;  
 reset=0;button1=1;button2=0;button3=0;button4=1'b1;modeS=0;
   #10;
+      reset=0;button1=1;button2=0;button3=0;button4=1'b1;modeS=0;
   end
+    voting_machine VM( .clk(clk),.reset(reset),.button1(button1),.button2(button2),.button3(button3),.button4(button4), .modeS(modeS) ,.LED(LED));
 endmodule
  
   
-  module voting_machine(input clk,reset,button1,button2,button3,button4, modeS ,output[7:0]LED);
+
+module voting_machine(input clk,reset,button1,button2,button3,button4, modeS ,output[7:0]LED);
   wire valid1,valid2,valid3,valid4,valid_final;
   wire[7:0]vc1v,vc2v,vc3v,vc4v;
 assign valid_final=  valid1|valid2|valid3|valid4;
@@ -59,7 +63,7 @@ module button(clk,reset,B_in,B_out);
   
   initial begin;
     count=0;
-    B_out;
+    B_out=0;
   end
   always@(posedge clk)
     begin
@@ -149,9 +153,9 @@ module mode_control(input clk,reset,valid,vb1,vb2,vb3,vb4,mode,input[7:0] vvc1,v
               else if(vb2)
                 led<=vvc2;
               else if(vb3)
-                led<=vv31;
+                led<=vvc3;
               else if(vb4)
-                led<=vvc5;
+                led<=vvc4;
             end
       end
   end
@@ -161,7 +165,11 @@ module mode_control(input clk,reset,valid,vb1,vb2,vb3,vb4,mode,input[7:0] vvc1,v
           
       
           
-      
+endmodule
    
  
+  
+
+
+
   

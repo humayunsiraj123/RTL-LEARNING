@@ -26,6 +26,32 @@ assign enable[7]=q[6]&enable[6];
 TFF tff7(clk,reset,enable[7],q[7]);
 
 endmodule  
+  
+  module counter_x#(parameter WIDTH=8)(
+    input clk,
+    input srst,
+    input t ,
+    output logic [WIDTH-1:0]q
+  );
+    logic  [WIDTH:0]ena;
+    always_comb 
+      begin
+        for(int i = 0 ;i<WIDTH; i++)
+          if(i==0) begin
+            en[i] = t; 
+            TFF tff(clk,srst,en[i],q[i])
+            en[i+1] =en[i]&q[i];
+          end
+        else
+          begin
+          TFF tff(clk,srst,en[i],q[i])
+            en[i+1] =en[i]&q[i];
+          end
+          
+      end
+    endmodule
+    
+  
 
 
 module counter#(parameter N=8)(clk,reset,q);
